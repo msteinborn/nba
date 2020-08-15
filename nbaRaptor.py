@@ -31,12 +31,3 @@ for i in range(0, len(data['player_name'])-1):
 	elif data['player_name'][i] == 'James Harden':
 		BrownTabRap.append(data['raptor_total'][i])
 		BrownTabYr.append(data['season'][i])
-
-
-plt.scatter(GreenTabYr,GreenTabRap, label='Steph Curry')
-plt.scatter(BrownTabYr, BrownTabRap,label='James Harden')
-leg = plt.legend(fancybox = True);
-plt.title("WAR James Harden vs Steph Curry")
-plt.xlabel('Year')
-plt.ylabel('WAR')
-plt.show()
