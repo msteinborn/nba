@@ -1,5 +1,8 @@
 import pandas as pd
 from matplotlib import pyplot as plt
+from nba_api.stats.static import players
+from nba_api.stats import endpoints
+
 
 
 # Reading CSV to get Raptor values for current nba
@@ -46,4 +49,13 @@ ax2.set_xlim(-1,8)
 ax2.set_ylim(-3,6)
 ax2.grid()
 
-plt.show()
+#plt.show()
+active_players = [i['id'] for i in players.get_active_players()]
+stats = []
+
+for i in range(len(active_players)):
+    plyrs = endpoints.playerprofilev2.PlayerProfileV2(player_id=active_players[i])
+    plyrs = plyrs.season_totals_regular_season.get_data_frame()
+    stats.append(plyrs[-1:])
+
+print(stats)
