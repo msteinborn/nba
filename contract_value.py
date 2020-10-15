@@ -104,4 +104,4 @@ for i in range(15):
 
 
 plt.savefig('books_read.png')
-fantasy.to_csv(index=False)
+fantasy.to_csv('fantasy.csv')
